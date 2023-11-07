@@ -8,6 +8,7 @@ class Solution(object):
         flag = 0
         if flowerbed[0] == 0 and flowerbed[1] == 0:
             flag += 1
+            flowerbed[0] = 1
         for i in range(len(flowerbed[1:-1])):
             if flowerbed[i] == 1:
                 continue
@@ -22,5 +23,5 @@ class Solution(object):
             
     
 test = Solution()
-print(test.canPlaceFlowers([1,0,0,1,0,0], 2))
+print(test.canPlaceFlowers([0,0,1,0], 2))
 
