@@ -1,0 +1,26 @@
+class Solution(object):
+    def reverseVowels(self, s):
+        vowels = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"]
+        vowels_to_reverse = []
+
+        for letter in s:
+            if letter in vowels:
+                vowels_to_reverse.append(letter)
+
+        vowels_to_reverse.reverse()
+
+        new_word = []
+        for letter in s:
+            if letter in vowels:
+                new_word.append(vowels_to_reverse[0])
+                vowels_to_reverse.pop(0)
+            else:
+                new_word.append(letter)
+
+        result_string = ''.join(new_word)
+        return(result_string)
+
+
+
+test = Solution()
+test.reverseVowels("hello")
