@@ -1,0 +1,73 @@
+class Solution(object):
+    def reverseWords(self, s):
+        letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+        sentence = []
+        word = ""
+        for i in range(len(s)):
+            if s[i] == " ":
+                if len(word) > 0:
+                    if word[0] in letters:
+                        sentence.append(word)
+                        word = ""
+                word += s[i]
+                continue
+            if s[i] in letters:
+                if len(word) > 0:
+                    if word[0] == " ":
+                        word = ""
+                        word += s[i]
+                    else:
+                        word += s[i]
+                else:
+                    word += s[i]
+        if word[0] in letters:
+            sentence.append(word)
+                
+
+
+        sentence.reverse()
+        temp = " ".join(sentence)
+        return temp
+
+        
+test = Solution()
+print(test.reverseWords("F R  I   E    N     D      S      "))
+
+
+
+# if space add word if word exists
+# if space if second space dont add word 
+# class Solution(object):
+#     def reverseWords(self, s):
+#         # letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+#         sentence = []
+#         word = ""
+#         for i in range(len(s)):
+#             if s[i] == " ":
+#                 continue
+#             else:
+#                 if i == 0:
+#                     word += s[i]
+#                     continue
+#                 if s[i-1] == " ":
+#                     sentence.append(word)
+#                     word = ""
+#                     word += s[i]
+#                     continue
+#                 else:
+#                     word += s[i]
+#         if len(word) > 0:
+#             sentence.append(word)
+
+#         sentence.reverse()
+#         temp = " ".join(sentence)
+#         return temp
+
+        
+# test = Solution()
+# print(test.reverseWords(" hello world "))
+
+
+
+# # if space add word if word exists
+# # if space if second space dont add word 
