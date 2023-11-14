@@ -1,0 +1,26 @@
+class Solution(object):
+    def productExceptSelf(self, nums):
+        length = len(nums)
+        left_products = [0] * length
+        right_products = [0] * length
+        result = [0] * length
+        print(left_products)
+
+        # Initialize the left_products array
+        left_products[0] = 1
+        for i in range(1, length):
+            left_products[i] = left_products[i - 1] * nums[i - 1]
+
+        # Initialize the right_products array
+        right_products[length - 1] = 1
+        for i in range(length - 2, -1, -1):
+            right_products[i] = right_products[i + 1] * nums[i + 1]
+
+        # Multiply left_products and right_products to get the final result
+        for i in range(length):
+            result[i] = left_products[i] * right_products[i]
+
+        return result
+
+test = Solution()
+print(test.productExceptSelf([1,2,3,4]))
